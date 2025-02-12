@@ -40,9 +40,11 @@ about:
 
 extra:
   anaconda-services:
+
     ref: https://anaconda.zendesk.com/agent/tickets/58810
     reason: Dependency for msgraph-sdk
   recipe-maintainers:
     - ianaobi
   recipe-maintainers:
     - xylar
+
