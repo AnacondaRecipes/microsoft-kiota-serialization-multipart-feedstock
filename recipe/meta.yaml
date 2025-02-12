@@ -1,13 +1,13 @@
 {% set name = "microsoft-kiota-serialization-multipart" %}
-{% set version = "0.1.0" %}
+{% set version = "1.9.2" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/microsoft_kiota_serialization_multipart-{{ version }}.tar.gz
-  sha256: 14e89e92582e6630ddbc70ac67b70bf189dacbfc41a96d3e1d10339e86c8dde5
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/microsoft_kiota_serialization_multipart-{{ version }}.tar.gz
+  sha256: b1851409205668d83f5c7a35a8b6fca974b341985b4a92841e95aaec93b7ca0a
 
 build:
   noarch: python
@@ -17,11 +17,11 @@ build:
 requirements:
   host:
     - python
-    - flit-core >=3.2,<4
     - pip
+    - poetry-core
   run:
     - python
-    - microsoft-kiota-abstractions >=1.0.0,<2.0.0
+    - microsoft-kiota-abstractions
 
 test:
   imports:
@@ -29,21 +29,20 @@ test:
   commands:
     - pip check
   requires:
+    - python
     - pip
 
 about:
-  home: https://github.com/microsoft/kiota-serialization-multipart-python
-  summary: Implementation of Kiota Serialization Interfaces for Multipart serialization
+  home: https://github.com/microsoft/kiota-python/tree/main/packages/serialization/multipart
+  summary: Core abstractions for kiota generated libraries in Python
   license: MIT
-  license_family: MIT
   license_file: LICENSE
-  dev_url: https://github.com/microsoft/kiota-serialization-multipart-python
-  doc_url: https://github.com/microsoft/kiota-serialization-multipart-python/blob/main/README.md
 
 extra:
   anaconda-services:
-    ref: https://anaconda.zendesk.com/agent/tickets/48409
-    reason: Dependenccy for msgraph-sdk
-    recipe-maintainers:
-      - ianaobi
-      - bkreider
+    ref: https://anaconda.zendesk.com/agent/tickets/58810
+    reason: Dependency for msgraph-sdk
+  recipe-maintainers:
+    - ianaobi
+  recipe-maintainers:
+    - xylar
